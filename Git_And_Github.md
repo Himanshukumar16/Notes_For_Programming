@@ -11,7 +11,7 @@
 
 ```git commit -m "message for commit" ```:-> committing in git.
 
-before committing we have to add the project in local repository. by git add <file> or git add *.
+before committing we have to add the project in local repository. by ```git add <file>``` or ```git add *```
 
 if you don't want to do add method then use :- ```git commit -a -m "message"``` this will commit without adding it to local repository.
 
