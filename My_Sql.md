@@ -14,7 +14,7 @@ it consists of many tables. tables consist of rows and columns.
 	or
   mysql> create database if not exists databaseName; preferred
 ```
-5) delete a database :-> ```drop database databaseName;```
+5) delete a database :-> ```drop database databaseName;``` same we can do with tables. as drop table.
 ```
    mysql> drop Database Practice;
    Query OK, 0 rows affected (0.01 sec)
@@ -45,7 +45,12 @@ Query OK, 0 rows affected (0.07 sec)
 ```
 11) Add values in table :-> ```insert into tableName values(id,name,age);```
 ```
-mysql> insert into student values(1,"Himanshu",50);
+mysql> insert into student values(1,"Himanshu",50);// generally used for adding one value to table.
+Query OK, 1 row affected (0.02 sec)
+
+or
+
+mysql> insert into student(id,name,age) values(4,"chootu",18); // generally used for adding mulitple value to table.
 Query OK, 1 row affected (0.02 sec)
 ```
 12) SQL Datatypes :-> 
@@ -96,3 +101,98 @@ Binary Data Types
 | DQL      | SELECT                                       |
 | DCL      | GRANT, REVOKE                                |
 | TCL      | COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION |
+
+14) printing whole table :->```select * from tableName;``` this will print whole table . 
+```
+    mysql> select * from student;
++----+----------+-----+
+| id | name     | age |
++----+----------+-----+
+|  1 | Himanshu |  50 |
+|  2 | Anurag   |  21 |
+|  3 | Ritika   |  19 |
++----+----------+-----+
+3 rows in set (0.00 sec)
+```
+15) to show table's all aspect :-> ``` desc info;  or describe info;```
+```
+mysql> describe info;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | YES  |     | NULL    |       |
+| name   | varchar(50) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+or
+
+mysql> desc info;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | YES  |     | NULL    |       |
+| name   | varchar(50) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+```
+16) Keys :-> Primary key and foreign Key
+Primary key :- A Primary Key is a column (or combination of columns) in a table that uniquely identifies each row.
+Key points:
+	Must be unique — no two rows can have the same primary key value.
+	Cannot be NULL — every row must have a valid primary key value.
+	A table can have only one primary key, but it can be made of multiple columns (called a composite key).
+
+foreign key :- A Foreign Key is a column (or columns) that creates a link between two tables. It points to the primary key (or unique key) in another table.
+Key points:
+	A foreign key value must match a value in the referenced table’s primary key (or be NULL).
+	Used to create relationships between tables.
+ 	declaring foreign key.:- FOREIGN KEY (iss_table_main_kon_hai) REFERENCES DushraTableName(dushreTableKaForeignKeyName);
+ ```
+CREATE TABLE enrollments (
+  enrollment_id INT PRIMARY KEY,
+  student_id INT,
+  FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
+```
+we can declare primary key in 2 ways:
+```
+enrollment_id INT PRIMARY KEY,
+  student_id INT,
+  FOREIGN KEY (student_id) REFERENCES students(student_id)
+
+or
+
+enrollment_id INT ,
+  student_id INT,
+  FOREIGN KEY (student_id) REFERENCES students(student_id); // declaring foreign key.
+  Primary key(enrollment_id)
+
+```
+| Feature          | Primary Key                                   | Foreign Key                                 |
+| ---------------- | --------------------------------------------- | ------------------------------------------- |
+| Purpose          | Uniquely identifies each row in its own table | Links two tables together                   |
+| Unique           | Must be unique                                | Can have duplicate values                   |
+| NULL allowed?    | No                                            | Yes (unless `NOT NULL` constraint is added) |
+| Number per table | One primary key                               | Can have multiple foreign keys              |
+
+17) SQL Constraints :->
+
+| Constraint          | What it does                                                              |
+| ------------------- | ------------------------------------------------------------------------- |
+| **PRIMARY KEY**     | Uniquely identifies each row. Cannot be NULL.                             |
+| **FOREIGN KEY**     | Links two tables to enforce referential integrity.                        |
+| **NOT NULL**        | The column **must** have a value (can’t be empty).                        |
+| **UNIQUE**          | All values in the column must be unique (no duplicates).                  |
+| **CHECK**           | Ensures that values meet a specific condition.                            |
+| **DEFAULT**         | Sets a default value if no value is given.                                |
+| **AUTO\_INCREMENT** | Automatically increases numeric values (commonly used with primary keys). |
+
+17) Distinct keyword :->```mysql> select distinct name from students;```
+    give distinct name from students table.
+
+18) applying condition in select :-> ```mysql> select roll_no from students where name = "Himanshu";```
+    we use where clause to filter the table content.
+
