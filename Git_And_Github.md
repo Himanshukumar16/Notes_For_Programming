@@ -15,7 +15,7 @@ before committing we have to add the project in local repository. by ```git add 
 
 if you don't want to do add method then use :- ```git commit -a -m "message"``` this will commit without adding it to local repository.
 
-with command git diff we can check what the new thing is present in the file for committing. if you have add the project to the stage then use git diff --staged to see the difference
+with command git diff we can check what the new thing is present in the file for committing. if you have add the project to the stage then use ```git diff --staged``` to see the difference
 
 for removing from stage use :- ```git rm --cached <filename> ```
 
@@ -57,7 +57,10 @@ to push a branch :-> ```git push origin <branch name>```
 
 pull :-> ```git pull origin <branch name>``` // if we change in GitHub then we have to do this in order to get the change in local system.
 
-merge two branch :-> 2 ways ->1) by merge 2) by rebase  // for merging we have to in main branch. Always pull before merging
+merge two branch :-> 2 ways 
+		->1) by merge 
+ 		2) by rebase  // for merging we have to in main branch. Always pull before merging
+
 by merge:
 	```git merge <branch name>```
 
