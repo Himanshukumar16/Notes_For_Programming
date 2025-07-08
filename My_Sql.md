@@ -213,9 +213,20 @@ we can use certain operations with where clause :- Arithmatic operation(+,-,*,/,
     ```mysql> select * from students order by name asc;```
 	for decending order.
    ```mysql> select * from students order by name desc;```
-
-
-
+we can use sum(),avg(),max(),min(),count() with select .
+ 26) group by :-> ```mysql> select name from students group by name;```
+     mainly we use ```group by``` with aggregate function...
+```
+mysql> select distinct city,count(name) from students group by name,city;
++-----------+-------------+
+| city      | count(name) |
++-----------+-------------+
+| delhi     |           1 |
+| Mumbai    |           1 |
+| new Delhi |           1 |
++-----------+-------------+
+3 rows in set (0.01 sec)    
+```
 
 
 
