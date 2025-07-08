@@ -149,7 +149,7 @@ foreign key :- A Foreign Key is a column (or columns) that creates a link betwee
 Key points:
 	A foreign key value must match a value in the referenced table’s primary key (or be NULL).
 	Used to create relationships between tables.
- 	declaring foreign key.:- FOREIGN KEY (iss_table_main_kon_hai) REFERENCES DushraTableName(dushreTableKaForeignKeyName);
+ 	```declaring foreign key.:- FOREIGN KEY (iss_table_main_kon_hai) REFERENCES DushraTableName(dushreTableKaForeignKeyName);```
  ```
 CREATE TABLE enrollments (
   enrollment_id INT PRIMARY KEY,
@@ -195,4 +195,36 @@ enrollment_id INT ,
 
 18) applying condition in select :-> ```mysql> select roll_no from students where name = "Himanshu";```
     we use where clause to filter the table content.
+```
+we can use certain operations with where clause :- Arithmatic operation(+,-,*,/,%)
+						   Comparision operator(>=,<=,=,!=)
+						   Logical operator(and,or,not,between,in,all,like,any)
+	 					   Btwise operator(& Btwise And, | Bitwise Or)
+```
+
+19) AND operator :-> dono condition true honichaiye.
+20) Or condition :-> ekbhi true hua to chal jaega.
+21) between :-> kisi bhi given number k beech main jo aaega usse print karega. ```mysql> select name,marks from students where roll_no between 2 and 5;```
+22) In :- given bracket main jo hoga usse hi search karega.```mysql> select name,marks from students where city in("delhi");```
+23) not in jo bracket main hoga usse chod kar baki output dega.
+24) Limit condition :-> it limits the output to a given number times.```mysql> select * from students limit 4;``` It will give only 4 outputs.
+25) OrderBy clause :-> to sort inascending and decending order.
+	for ascending order
+    ```mysql> select * from students order by name asc;```
+	for decending order.
+   ```mysql> select * from students order by name desc;```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
