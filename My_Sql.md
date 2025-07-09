@@ -227,7 +227,11 @@ mysql> select distinct city,count(name) from students group by name,city;
 +-----------+-------------+
 3 rows in set (0.01 sec)    
 ```
-
+27) if we want to reflact the changes that we have done in the table we use
+    ```
+    ON UPDATE CASCADE; for updating
+    or
+    ON DELETE CASCADE; for deleting.
 
 
 
