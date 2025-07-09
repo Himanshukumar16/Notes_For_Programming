@@ -232,9 +232,58 @@ mysql> select distinct city,count(name) from students group by name,city;
     ON UPDATE CASCADE; for updating
     or
     ON DELETE CASCADE; for deleting.
+28) update clause :->
+    used for updatingatable...
+    ```
+    UPDATE students SET grade = "O" WHERE marks >= 90;
+    ```
+29) Having clause :-> used to apply conditions to the grouped data.
+    ```
+    mysql> select * from demo group by id having id > 2;
+    ```
+30) delete things :-> delete a table or rows.
+    ```
+    mysql> delete from demo2 where adm_no = 5;
+    ```
+31) add column :-> by using alter
+    ```
+    alter table tableName add column column_name datatype;
+    ```
+32) to delete a column :->
+    ```
+    alter table tableName drop column column_Name;
+    ```
+33) change name of a table :->
+    ```
+    alter table tableName rename to newTableName;
+    ```
+34) to change column name :->
+    ```
+    alter table tableName change column oldName newName datatype constrain;
+    ```
+35) to modify column :->
+    ```
+    alter table tableName modify columnName newDatatype newConstrains;
+    ```
+36)truncate :-> delete all the table data 
+```
+truncate table tableName;
+```
+37) Joins in sql :->
+    Types of joint :
+| Join Type  | Includes rows from   | When match? | When no match?      |
+| ---------- | -------------------- | ----------- | ------------------- |
+| INNER JOIN | Both tables          | ✅           | ❌                   |
+| LEFT JOIN  | Left + matched right | ✅           | NULLs for right     |
+| RIGHT JOIN | Right + matched left | ✅           | NULLs for left      |
+| FULL JOIN  | All rows both sides  | ✅           | NULLs where missing |
+| CROSS JOIN | All combinations     | Always       | —                   |
+| SELF JOIN  | Same table twice     | As defined   |  —                   |
 
 
 
+
+    
 
 
 
