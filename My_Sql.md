@@ -270,7 +270,7 @@ mysql> select distinct city,count(name) from students group by name,city;
 truncate table tableName;
 ```
 37) Joins in sql :->
-    Types of joint :
+
 | **Join Type** | **Includes rows from** | **When match?** | **When no match?** |
 |---------------|------------------------|-----------------|---------------------|
 | `INNER JOIN`  | Both tables            | ✅               | ❌                  |
