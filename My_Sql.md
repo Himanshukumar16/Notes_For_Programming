@@ -271,14 +271,15 @@ truncate table tableName;
 ```
 37) Joins in sql :->
     Types of joint :
-| Join Type  | Includes rows from   | When match? | When no match?      |
-| ---------- | -------------------- | ----------- | ------------------- |
-| INNER JOIN | Both tables          | ✅           | ❌                   |
-| LEFT JOIN  | Left + matched right | ✅           | NULLs for right     |
-| RIGHT JOIN | Right + matched left | ✅           | NULLs for left      |
-| FULL JOIN  | All rows both sides  | ✅           | NULLs where missing |
-| CROSS JOIN | All combinations     | Always      | —                   |
-| SELF JOIN  | Same table twice     | As defined  | —                   |
+| **Join Type** | **Includes rows from** | **When match?** | **When no match?** |
+|---------------|------------------------|-----------------|---------------------|
+| `INNER JOIN`  | Both tables            | ✅               | ❌                  |
+| `LEFT JOIN`   | Left + matched right   | ✅               | NULLs for right     |
+| `RIGHT JOIN`  | Right + matched left   | ✅               | NULLs for left      |
+| `FULL JOIN`   | All rows both sides    | ✅               | NULLs where missing |
+| `CROSS JOIN`  | All combinations       | Always          | —                   |
+| `SELF JOIN`   | Same table twice       | As defined      | —                   |
+
 
 
 
