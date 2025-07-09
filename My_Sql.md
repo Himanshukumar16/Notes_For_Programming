@@ -277,8 +277,8 @@ truncate table tableName;
 | LEFT JOIN  | Left + matched right | ✅           | NULLs for right     |
 | RIGHT JOIN | Right + matched left | ✅           | NULLs for left      |
 | FULL JOIN  | All rows both sides  | ✅           | NULLs where missing |
-| CROSS JOIN | All combinations     | Always       | —                   |
-| SELF JOIN  | Same table twice     | As defined   |  —                   |
+| CROSS JOIN | All combinations     | Always      | —                   |
+| SELF JOIN  | Same table twice     | As defined  | —                   |
 
 
 
