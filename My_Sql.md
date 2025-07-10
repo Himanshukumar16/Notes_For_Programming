@@ -280,16 +280,78 @@ truncate table tableName;
 | `CROSS JOIN`  | All combinations       | Always          | —                   |
 | `SELF JOIN`   | Same table twice       | As defined      | —                   |
 
-
-
-
-
+38) Inner join :-> return records that has common values in both the tables...
+    ```
+    mysql> select * from emp inner join salary on emp.id = salary.id where salary.id > 102;
+    ```
+    we can use the syntax learnt above in it....
     
+40) Left join :-> Returns all rows from the left table, and the matching rows from the right table.
+If there’s no match, you’ll get NULL for the right table’s columns.
+```
+mysql> select * from emp as e left join salary as s on e.id = s.id;
+```    
+left table poora aaega right main khali paired wala aaega..
 
+41) Right joint :-> Returns all rows from the right table, and the matching rows from the left table.
+ If no match, left table columns will be NULL.
+```
+mysql> select * from emp as e right join salary as s on e.id = s.id;
+```
+42) Full joint :-> Returns all rows from both tables. If there’s no match, you get NULL on the side that’s missing.
+Note: MySQL doesn’t support FULL JOIN directly — you can combine``` LEFT JOIN``` and ```RIGHT JOIN``` with ```UNION```.
+```
+mysql> select * from emp as e right join salary as s on e.id = s.id
+union
+select * from emp as e left join salary as s on e.id = s.id;
+```
+43) left exclusive (A-B) :-> we dont have direct method we use left with condition...
+```
+mysql> select * from emp left join salary on emp.id = salary.id
+ where salary.id is null;
+```
+44) Right exclusive (B-A) :-> we dont have direct method we use right with condition...
+```
+mysql> select * from emp right join salary on emp.id = salary.id
+where emp.id is null;
+```
+45) Self join :-> A table joined with itself — useful for comparing rows within the same table.
+```
+mysql> select * from emp as e join emp as b on e.id = b.id;
+```
+46) Union :-> ```UNION``` combines results from two or more ```SELECT``` statements into a single result set. It removes duplicate rows by default.
+The ```SELECT``` statements must have the same number of columns, and the columns must have compatible data types.
+```
+SELECT column1, column2 FROM table1
+UNION
+SELECT column1, column2 FROM table2;
+```
+if we want to not remove the duplicate column use ```union all```....
 
+47) Subquery :-> A subquery is a query inside another SQL query.
+```
+SELECT column1 FROM table1
+WHERE column2 = (SELECT column2 FROM table2 WHERE condition);
+```
+for example :-
+```
+mysql> select name from emp where id > (select avg(id)from emp); with where
 
+or
 
+mysql> select max(marks) from (select * from emp where city = "DELHI") as temp; with from
+```
+48) View in SQL :-> A View is a virtual table based on a ```SELECT``` query. It does not store data — it shows data stored in underlying tables.
+You can think of it as a saved ```SELECT``` query. When you query a view, the database runs the stored query.
+```
+CREATE VIEW view_name AS
+SELECT columns
+FROM table_name
+WHERE condition;
+```
+we can use drop todelete view...
 
-
-
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
+			THE END
+```
