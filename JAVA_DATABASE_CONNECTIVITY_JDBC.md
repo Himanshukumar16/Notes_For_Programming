@@ -19,7 +19,7 @@ It gives you classes & interfaces to:
     create statement
     execute statement
     process the result
-    close
+    close by connector_object.close();
 */
 ```
 //  load and register :->
@@ -45,7 +45,23 @@ It gives you classes & interfaces to:
         }
         System.out.println("Connection established");
 ```
-    }
-}
+// creating object of the statement:
+```
+Statement st = con.createStatement();
+```
+// for executing a statement:
+```
+ResultSet res = st.executeQuery("select name from emp where id < 106;");
+```
+res.next() returns true if next rowis present else false.
+fetch record:
+```
+res.getString("name") // one record fetch 1st record.
+
+while(res.next()){
+            System.out.println(res.getString("name")); // prints all record.
+        }
+```
+
 
 
