@@ -69,5 +69,13 @@ Statement st = con.createStatement();
 st.execute("insert into emp values (107,'Sibu')");
 ```
 
+to update data :
+```
+st.execute("update emp set name = 'Anubhav' where name = 'jaddu'");
+```
 
+to delete data : 
+```
+st.execute("delete from emp where name = 'Sibu';");
+```
 
