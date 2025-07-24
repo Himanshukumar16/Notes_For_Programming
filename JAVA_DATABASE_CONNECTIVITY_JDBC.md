@@ -63,5 +63,11 @@ while(res.next()){
         }
 ```
 
+To add data :
+```
+Statement st = con.createStatement();
+st.execute("insert into emp values (107,'Sibu')");
+```
+
 
 
