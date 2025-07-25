@@ -18,3 +18,59 @@ Key Features of Hibernate :
 | **Transaction Management**          | Supports atomic transactions with automatic rollback on failure.          |
 | **Annotations/XML Configuration**   | Flexible configuration using annotations or XML files.                    |
 
+Creates a new Configuration object which will be used to configure Hibernate by reading settings :
+```
+Configuration con = new Configuration();
+```
+Tells Hibernate to use the Students class as an entity that is linked to a database table (using annotations on Students):
+```
+con.addAnnotatedClass(Students.class);
+```
+Loads Hibernate configuration from the default config file (hibernate.cfg.xml) located in the classpath:
+```
+con.configure();
+```
+Builds a SessionFactory from the configuration. This factory creates sessions to interact with the database. It's expensive to create, so usually created once per application:
+```
+SessionFactory sf = con.buildSessionFactory();
+```
+Opens a new database session from the SessionFactory. A Session is like a single connection and cache for database operations:
+```
+Session s = sf.openSession();
+```
+Starts a database transaction which groups SQL statements as a single unit so they either all succeed or fail together:
+```
+        Transaction tr = s.beginTransaction();
+```
+Saves the Students object s1 to the database. Hibernate translates this into an SQL INSERT command:
+```
+        s.save(s1);
+```
+Commits the transaction, which means all changes (inserts, updates, deletes) within the transaction are finalized and saved in the database:
+```
+        tr.commit();
+```
+
+we have to make the xml file for giving instructions to the hibernate: (namely:-> ```hibernate.cfg.xml```)
+```
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> // name of jdbc conector
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/spring</property> // url
+        <property name="hibernate.connection.username">root</property> // username
+        <property name="hibernate.connection.password">1234</property> // password
+        <property name="hibernate.hbm2ddl.auto">update</property> // it will make table if not exist and update if exist.
+    </session-factory>
+</hibernate-configuration>
+```
+we have to add anotation to a class which we are goingto make table in database : 
+for this we use : ```@Entity```
+
+and in every data it is compulsery to have a primary key :
+for this we se : ```@Id```
+
+to see what comand or queries hibernate is giving to the database we can add this in xml file made above:
+```
+<property name="hibernate.show_sql">true</property>
+```
+it will give output as : ```Hibernate: insert into Students (sgpa,sname,sid) values (?,?,?)```
