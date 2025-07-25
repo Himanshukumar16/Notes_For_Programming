@@ -79,3 +79,46 @@ to delete data :
 st.execute("delete from emp where name = 'Sibu';");
 ```
 
+Problem with statements :
+```
+1) we cannot use directly the variables that we taken input in statements without concatenation and to do concetination here is a hard task..
+2) sql injections can be there and data may be leaked from database..
+```
+Prepared Statement :
+```
+int  id = 50;
+String name = "Ram";
+String sql = "insert into emp values(?,?);";
+PreparedStatement pst = con.prepareStatement(sql);
+pst.setInt(1,id);
+pst.setString(2,name);
+pst.execute();
+```
+This will change the data in the table by adding this..
+
+Use Statement only for executing fixed SQL or DDL commands where no user input is inserted and the statement is executed once.
+
+Use PreparedStatement for most SQL commands, especially when queries are executed many times, require parameters, 
+or when you want better security and performance..
+
+## 🔍 Feature Comparison: `Statement` vs `PreparedStatement`
+
+| Feature               | `Statement`                                             | `PreparedStatement`                                               |
+|-----------------------|---------------------------------------------------------|-------------------------------------------------------------------|
+| **Use Case**          | Single, static executions (e.g., DDL, simple queries)   | Repeated, parameterized, dynamic SQL executions                   |
+| **Parameterization**  | ❌ Not supported                                        | ✅ Supported via setters                                           |
+| **Security**          | ❌ Prone to SQL injection                               | ✅ Prevents SQL injection                                          |
+| **Query Compilation** | Compiled on every execution                            | Precompiled once, reused                                          |
+| **Performance**       | ⬇️ Lower for repeated/dynamic queries                   | ⬆️ Higher for repeated/dynamic queries                            |
+| **Handling Binary Data** | ❌ Not supported                                     | ✅ Supported                                                       |
+| **Batch Processing**  | ❌ Less efficient                                       | ✅ More efficient                                                  |
+| **DDL Statements**    | ✅ Preferred                                            | ⚠️ Possible, but not commonly used                                |
+
+> ✅ = Supported / Preferred  
+> ❌ = Not supported / Less preferred  
+> ⚠️ = Possible but not recommended  
+> ⬆️⬇️ = Indicates relative performance
+
+```
+            THE END
+```
