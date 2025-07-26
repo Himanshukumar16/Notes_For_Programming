@@ -45,6 +45,7 @@ Starts a database transaction which groups SQL statements as a single unit so th
 Saves the Students object s1 to the database. Hibernate translates this into an SQL INSERT command:
 ```
         s.save(s1);
+        use: s.persist(s1) as save is depriciated from hibernate 6.0
 ```
 Commits the transaction, which means all changes (inserts, updates, deletes) within the transaction are finalized and saved in the database:
 ```
@@ -74,3 +75,62 @@ to see what comand or queries hibernate is giving to the database we can add thi
 <property name="hibernate.show_sql">true</property>
 ```
 it will give output as : ```Hibernate: insert into Students (sgpa,sname,sid) values (?,?,?)```
+
+in order to reduse the linesof code we can use :
+```
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class Main {
+    public static void main(String[] args) {
+        Students s1 = new Students();
+        s1.setSid(6);
+        s1.setSname("Sibu");
+        s1.setSgpa(7.90);
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(Students.class)
+                .configure()
+                .buildSessionFactory();
+
+        Session s = sf.openSession();
+        Transaction tr = s.beginTransaction();
+
+        s.persist(s1);
+        tr.commit();
+
+        s.close();
+        sf.close();
+    }
+}
+```
+here we have used configuration as annonmous object...
+
+for fetching data from database:
+we use ```session.get();```
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(Students.class)
+                .configure()
+                .buildSessionFactory();
+
+        Session s = sf.openSession();
+
+        Students detail = s.get(Students.class,1);
+        s.close();
+        sf.close();
+
+        System.out.println(detail);
+    }
+}
+```
+for updating and deleting a data : 
+```
+
+```
