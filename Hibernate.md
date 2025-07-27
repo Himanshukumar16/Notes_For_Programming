@@ -132,5 +132,11 @@ public class Main {
 ```
 for updating and deleting a data : 
 ```
+session.merge(s1); // updates the table. but it is not updated in database.if data is not present it insert in the table.
+```
+for saving this or updating in database we have to commit by: ```transaction.commit();```
+
+for deleting :
+```
 
 ```
