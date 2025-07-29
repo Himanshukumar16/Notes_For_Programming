@@ -138,5 +138,5 @@ for saving this or updating in database we have to commit by: ```transaction.com
 
 for deleting :
 ```
-
+session.remove(s1);
 ```
