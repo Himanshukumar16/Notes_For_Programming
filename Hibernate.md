@@ -140,3 +140,19 @@ for deleting :
 ```
 session.remove(s1);
 ```
+To change the name of the columns of the table use ```@Column(name = "NameOfColumn")```
+
+if we want to not to store the data in the database we can use ```@Transient```
+```
+@Entity
+public class Students {
+    @Id
+    @Column(name = "Student_id")
+    private int sid;
+    @Column(name = "Student_Name")
+    private String sname;
+    @Column(name = "Student_CGPA")
+    private double sgpa;
+    private Subjects subject;
+```
+if we have to add a class or complex as a fields then add ```@Embeddable```at the top of the subject class..
