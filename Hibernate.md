@@ -156,3 +156,11 @@ public class Students {
     private Subjects subject;
 ```
 if we have to add a class or complex as a fields then add ```@Embeddable```at the top of the subject class..
+if we have to create self sql query or add qury which cannot be directly added using hibernate then use this :
+```
+TypedQuery<Students> query = s.createQuery("FROM Students ORDER BY sgpa DESC", Students.class);
+List<Students> list = query.getResultList();
+for(Students std : list){
+    System.out.println(std.toString());
+}
+```
