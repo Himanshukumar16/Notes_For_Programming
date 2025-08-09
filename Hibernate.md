@@ -164,4 +164,9 @@ for(Students std : list){
     System.out.println(std.toString());
 }
 ```
-.....
+Mapping : 4 types :->
+        1. One-to-One ```@OneToOne``` is used !
+        2. One-to-Many```@OneToMany```is used !
+        3. Many-to-One```@ManyToOne```is used !
+        4. Many-to-Many```@ManyToMany```is used !
+one to many & many to one -> creates new table for common parts.
