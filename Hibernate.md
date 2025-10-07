@@ -170,3 +170,28 @@ Mapping : 4 types :->
         3. Many-to-One```@ManyToOne```is used !
         4. Many-to-Many```@ManyToMany```is used !
 one to many & many to one -> creates new table for common parts.
+
+
+HQL
+```HQL is similar to SQL, but instead of working with table names and columns, it works with entity class names and their properties.```
+
+table -> table in database;
+Entity -> class in java file;
+
+Syntax : to fetch all details``` 
+Query query = session.createQuery("FROM Student");
+List<Student> students = query.list();```
+
+syntac : to fetch selected data```
+Query q = session.createQuery("FROM Student WHERE age > 18");
+List<Student> list = q.list();```
+
+add data from user : 
+```
+String name = sc.next();
+Query<Contacts> q = s.createQuery("FROM Contacts WHERE name = ?1", Contacts.class); // ?1 represent that here we have to put a variable detail..
+q.setParameter(1,name);
+```
+
+As get() and load() get deprecated we use find(obj,id) and getRefrence(id);
+
