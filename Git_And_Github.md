@@ -74,7 +74,5 @@ by rebase:
 
 ```
 if Want more detail follow this Handbook :
-
-https://drive.google.com/file/d/198s-hN3XplYIH8BpzuX2AjOmzG-htwQG/view?usp=drive_link
-
 ```
+**[📎 Click here to open the document on Google Drive](https://drive.google.com/file/d/198s-hN3XplYIH8BpzuX2AjOmzG-htwQG/view?usp=drive_link)**
