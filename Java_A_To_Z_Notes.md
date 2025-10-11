@@ -1123,3 +1123,7 @@ syntax : ClassName::new
 				THE END! THANK YOU !
 ```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```for Handwritten short note :```
+
+[📄 View File on Google Drive](https://drive.google.com/file/d/19XVT6gk_G_er3VA67wtwfZYwnk0if7Fh/view?usp=sharing)
