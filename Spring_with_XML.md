@@ -95,3 +95,15 @@ Defines how many instances of a bean will be created.
 
 ```Java-based Configuration```Using @Configuration and @Bean in a Java class instead of XML.
 
+```Autowiring```
+Autowiring means automatically injecting one bean into another by matching certain criteria (like name, type, or constructor).
+
+
+```Primary Bean```
+When you have multiple beans of the same type, and you try to autowire by type, Spring gets confused and throws an exception.
+if we use primary, it Marks a bean as the default choice when multiple beans of the same type exist.
+
+```Lazy-Initialization of Beans```
+Marks a bean as the default choice when multiple beans of the same type exist..
+```<bean id="heavyBean" class="com.example.HeavyBean" lazy-init="true"/>```
+
